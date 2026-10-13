@@ -2,7 +2,8 @@ name: Renovate
 
 on:
   schedule:
-    - cron: '0/15 * * * *' 
+    - cron: '*/15 * * * *' 
+  workflow_dispatch:         # optional: lets you run the workflow manually for testing
 
 jobs:
   renovate:
