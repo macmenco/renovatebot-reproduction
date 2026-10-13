@@ -55,5 +55,5 @@ module.exports = {
   onboardingBranch: 'feature/renovate-onboarding',
   repositoryCache: 'enabled',
   autodiscover: true,
-  // autodiscoverFilter: ['renovatebot-reproduction'],
+  autodiscoverFilter: ['macmenco/renovatebot-reproduction'],
 };
