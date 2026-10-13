@@ -7,7 +7,7 @@
   "overrides": {
     "qs": "6.16.0",
     "sockjs": {
-      "uuid": "11.1.1"
+      "uuid": "14.0.3"
     }
   },
   "dependencies": {
