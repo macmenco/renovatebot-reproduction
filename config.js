@@ -8,8 +8,8 @@ module.exports = {
     'mergeConfidence:all-badges',
   ],
   timezone: 'Europe/Amsterdam',
-  schedule: ['* 0-4,22-23 * * 1,2,5', '* 0-4 * * 3', '* 2-4,22-23 * * 4', '* * * * 0,6'],
-  updateNotScheduled: false,
+  // schedule: ['* 0-4,22-23 * * 1,2,5', '* 0-4 * * 3', '* 2-4,22-23 * * 4', '* * * * 0,6'],
+  // updateNotScheduled: false,
   platform: 'github',
   labels: ['renovate::{{updateType}}', '{{categories}}'],
   packageRules: [
@@ -55,4 +55,5 @@ module.exports = {
   onboardingBranch: 'feature/renovate-onboarding',
   repositoryCache: 'enabled',
   autodiscover: true,
+  autodiscoverFilter: ['renovatebot-reproduction'],
 };
