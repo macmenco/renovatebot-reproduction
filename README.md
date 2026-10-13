@@ -1,6 +1,6 @@
 # minimal-reproduction-template
 
-Then replace the current `h1` with the Renovate Issue/Discussion number.
+46998 
 
 ## Current behavior
 
@@ -28,4 +28,4 @@ Only add packages which are at minimumal `7 days` old, not younger.
 
 ## Link to the Renovate issue or Discussion
 
-Put your link to the Renovate issue or Discussion here.
+https://github.com/renovatebot/renovate/discussions/46998
