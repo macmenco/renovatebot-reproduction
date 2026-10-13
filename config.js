@@ -1,0 +1,58 @@
+module.exports = {
+  extends: [
+    'config:best-practices',
+    'group:allNonMajor',
+    'group:nxMonorepo',
+    'group:allDigest',
+    'security:openssf-scorecard',
+    'mergeConfidence:all-badges',
+  ],
+  timezone: 'Europe/Amsterdam',
+  schedule: ['* 0-4,22-23 * * 1,2,5', '* 0-4 * * 3', '* 2-4,22-23 * * 4', '* * * * 0,6'],
+  updateNotScheduled: false,
+  platform: 'github',
+  labels: ['renovate::{{updateType}}', '{{categories}}'],
+  packageRules: [
+    {
+      groupName: 'all non-major docker dependencies',
+      groupSlug: 'all-minor-docker-patch',
+      matchCategories: ['docker'],
+      matchUpdateTypes: ['minor', 'patch'],
+    },
+    {
+      matchUpdateTypes: ['digest', 'pinDigest', 'lockFileMaintenance'],
+      minimumReleaseAgeBehaviour: 'timestamp-optional',
+    },
+    {
+      matchCategories: ['docker'],
+      matchRegistryUrls: ['https://ghcr.io/**', 'https://quay.io/**', 'https://mcr.microsoft.com/**'],
+      minimumReleaseAgeBehaviour: 'timestamp-optional',
+    },
+  ],
+  hostRules: [
+    {
+      abortOnError: true,
+    },
+  ],
+  configMigration: true,
+  minimumReleaseAge: '7 days',
+  dockerMaxPages: 10,
+  prCreation: 'immediate',
+  osvVulnerabilityAlerts: true,
+  dependencyDashboardOSVVulnerabilitySummary: 'all',
+  dependencyDashboardLabels: ['renovate'],
+  dependencyDashboardApproval: false,
+  commitMessagePrefix: '[{{#if (or isMajor isMinor)}}{{uppercase updateType}}{{else}}{{updateType}}{{/if}}]',
+  vulnerabilityAlerts: {
+    enabled: true,
+    addLabels: ['security{{#if isVulnerabilityAlert}}:{{vulnerabilitySeverity}}{{/if}}'],
+    commitMessageSuffix: '',
+    commitMessagePrefix: '[SECURITY{{#if isVulnerabilityAlert}} - {{vulnerabilitySeverity}}{{/if}}]',
+  },
+  rebaseWhen: 'behind-base-branch',
+  optimizeForDisabled: true,
+  branchPrefix: 'fix/renovate-',
+  onboardingBranch: 'feature/renovate-onboarding',
+  repositoryCache: 'enabled',
+  autodiscover: true,
+};

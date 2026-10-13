@@ -1,16 +1,30 @@
 # minimal-reproduction-template
 
-First, read the [Renovate minimal reproduction instructions](https://github.com/renovatebot/renovate/blob/main/docs/development/minimal-reproductions.md).
-
 Then replace the current `h1` with the Renovate Issue/Discussion number.
 
 ## Current behavior
 
-Explain the current behavior here.
+Dispate having the `minimumReleaseAge` globally at `7 days`, there are MRs created with updates younger then 7 days. 
+
+It seems like the `security:minimumReleaseAgeNpm` preset is not respecting the maximum of the `minimumReleaseAge` and `.npmrc`. 
+
+```
+            {
+                "internalChecksFilter": "strict",
+                "matchDatasources": [
+                    "npm"
+                ],
+                "minimumReleaseAge": "3 days"
+            },
+```
+
+Running self-hosted on self-hosted GitLab.
+
+![alt text](data/image.png)
 
 ## Expected behavior
 
-Explain the expected behavior here.
+Only add packages which are at minimumal `7 days` old, not younger. 
 
 ## Link to the Renovate issue or Discussion
 
